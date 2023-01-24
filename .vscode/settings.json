@@ -3,6 +3,6 @@
     "restructuredtext.confPath"               : "${workspaceRoot}",
     "restructuredtext.updateOnTextChanged"    : "true",
     "restructuredtext.sphinxBuildPath": "C:\\Python310\\Scripts\\sphinx-build.exe",
-    "esbonio.sphinx.confDir": "${workspaceFolder}\\source",
+    "esbonio.sphinx.confDir": "${workspaceRoot}",
     "esbonio.sphinx.buildDir": "${workspaceRoot}/build"
 }

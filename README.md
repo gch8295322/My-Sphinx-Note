@@ -5,6 +5,5 @@ Gyc' sphinx git-note.
 > 
 > ./make clean
 > 
-> ./make build
-
+> ./make html
 在 **./build/html** 中找到 **index.html** 即为博客主页。

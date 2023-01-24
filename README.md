@@ -7,4 +7,4 @@ Gyc' sphinx git-note.
 > 
 > ./make html
 
-在 **./build/html** 中找到 **index.html** 即为博客主页。
+在 **./build/html** 中找到 **index.html** 即为博客主页，主页托管在Read the Docs上。地址：https://gycs-blog.readthedocs.io/en/latest/

@@ -14,6 +14,7 @@
 
    Sphinx-rst
    Sphinx-setup-ubuntu
+   StardewValley
    
 快捷操作
 =========

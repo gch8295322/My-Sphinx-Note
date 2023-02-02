@@ -8,13 +8,18 @@
 ::
    ./make clean
    ./make html
-
+然后更新到Github上，再去Read the Docs上手动编译下，或者过段时间它会自己编译。
+::
+   git add .
+   git commit -m "commit"
+   git push -u origin master
 .. toctree::
    :maxdepth: 3
 
    Sphinx-rst
    Sphinx-setup-ubuntu
    StardewValley
+   Gazebo
    
 快捷操作
 =========

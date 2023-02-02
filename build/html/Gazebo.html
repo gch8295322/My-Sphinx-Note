@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="zh-CN" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>搜索 &mdash; Gyc 2.0.2 文档</title>
+  <title>Gazebo tutorials &mdash; Gyc 2.0.2 文档</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,10 +20,9 @@
         <script src="_static/translations.js"></script>
         <script src="https://js.users.51.la/19196963.js"></script>
     <script src="_static/js/theme.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
-    <link rel="search" title="搜索" href="#" /> 
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="StardewValley’s To Do List" href="StardewValley.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,18 +36,18 @@
                 2.0.2
               </div>
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="搜索文档" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="Sphinx-rst.html">Sphinx rst 语法</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Sphinx-setup-ubuntu.html">Sphinx rst setup for ubuntu</a></li>
 <li class="toctree-l1"><a class="reference internal" href="StardewValley.html">StardewValley’s To Do List</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Gazebo.html">Gazebo tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Gazebo tutorials</a></li>
 </ul>
 
         </div>
@@ -65,8 +64,9 @@
           <div role="navigation" aria-label="页面导航">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">搜索</li>
+      <li class="breadcrumb-item active">Gazebo tutorials</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Gazebo.rst.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul>
   <hr/>
@@ -74,22 +74,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      请启用 JavaScript 以便使用搜索功能
-    </p>
-  </div>
-  </noscript>
+  <section id="gazebo-tutorials">
+<h1>Gazebo tutorials<a class="headerlink" href="#gazebo-tutorials" title="此标题的永久链接"></a></h1>
+<p>Gazebo is an open source 3D Dynamic simulator used for robotics development. It offers a wide of sensors and interfaces as well as multiple physics engines. In this video, I will introduce you to Gazebo and explain about its importance for robotics and I will show you how to install it and launch it on your system.</p>
+<dl>
+<dt>Terminal code for installation:</dt><dd><ul class="simple">
+<li><p>1- OSRF repository installation ▶ sudo sh -c ‘echo “deb <a class="reference external" href="http://packages.osrfoundation.org/gaz">http://packages.osrfoundation.org/gaz</a>… <cite>lsb_release -cs</cite> main” ＞ /etc/apt/sources.list.d/gazebo-latest.list’</p></li>
+</ul>
+<p>NOTE: If the  “＞” symbol in the above code line caused a problem, please replace it by a small greater than symbol using your keyboard. (I am not allowed to include the small greater than symbol in my YouTube video description).
+- 2- OSRF repository key setup ▶ wget <a class="reference external" href="https://packages.osrfoundation.org/ga">https://packages.osrfoundation.org/ga</a>… -O - | sudo apt-key add -
+- 3- Gazebo package installation ▶</p>
+<blockquote>
+<div><p>sudo apt-get update
+sudo apt-get install gazebo9
+sudo apt-get install libgazebo9-dev</p>
+</div></blockquote>
+</dd>
+</dl>
+<p>Share This Video ▶ <a class="reference external" href="https://youtu.be/O0729K-7VEY">https://youtu.be/O0729K-7VEY</a></p>
+<p>Useful links:
+Gazebo answers ▶ <a class="reference external" href="https://answers.gazebosim.org/questions/">https://answers.gazebosim.org/questions/</a></p>
+</section>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
+        <a href="StardewValley.html" class="btn btn-neutral float-left" title="StardewValley’s To Do List" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
 
   <hr/>
 
@@ -111,14 +123,7 @@
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-  <script>
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script id="searchindexloader"></script>
-   
-
+  </script> 
 
 </body>
 </html>

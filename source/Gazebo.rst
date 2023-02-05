@@ -8,7 +8,7 @@ Gazebo is an open source 3D Dynamic simulator used for robotics development. It 
 Terminal code for installation:
     - 1- OSRF repository installation ▶ sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu `lsb_release -cs` main" ＞ /etc/apt/sources.list.d/gazebo-latest.list'
     NOTE: If the  "＞" symbol in the above code line caused a problem, please replace it by a small greater than symbol using your keyboard. (I am not allowed to include the small greater than symbol in my YouTube video description).
-    - 2- OSRF repository key setup ▶ wget https://packages.osrfoundation.org/ga... -O - | sudo apt-key add -
+    - 2- OSRF repository key setup ▶ wget https://packages.osrfoundation.org/gazebo/ubuntu -O - | sudo apt-key add -
     - 3- Gazebo package installation ▶
         sudo apt-get update
         sudo apt-get install gazebo9

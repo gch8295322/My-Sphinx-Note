@@ -13,14 +13,15 @@
    git add .
    git commit -m "commit"
    git push -u origin master
+
 .. toctree::
    :maxdepth: 3
+   
    Sphinx-rst
    Sphinx-setup-ubuntu
    StardewValley
    Gazebo
    ChatGPT
-   
 快捷操作
 =========
 

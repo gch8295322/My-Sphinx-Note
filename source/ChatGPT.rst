@@ -1,10 +1,10 @@
 .. index::
    single: ChatGPT
 ==========
-ChatGPY Tips
+ChatGPT Tips
 ==========
 
-背单词
+论文润色
 ==========
 简单改写：
     - Rewrite and expand on the passage in the style of a college-educated native English speaker. Use simple syntax and idiomatic expressions.
@@ -15,6 +15,11 @@ ChatGPY Tips
 
 用某某作家/教授的风格改写：
     - Rewrite the passage in the style of Steven Pinker.
+
+背单词
+==========
+
+ `雅思乱序单词表 <https://github.com/fanhongtao/IELTS/blob/master/IELTS%20Word%20List.txt>`_
 
 写一则100词的故事，使用以下单词.
     - Write a story of 100 words using the following words.

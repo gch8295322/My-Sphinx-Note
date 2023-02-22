@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setup environment &mdash; Gyc 2.0.2 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/translations.js"></script>
+        <script src="https://js.users.51.la/19196963.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Gyc
+          </a>
+              <div class="version">
+                2.0.2
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="搜索文档" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx-rst.html">Sphinx rst 语法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sphinx-setup-ubuntu.html">Sphinx rst setup for ubuntu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StardewValley.html">StardewValley’s To Do List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Gazebo.html">Gazebo tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ChatGPT.html">ChatGPT Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iiwa.html">iiwa install tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">群插件命令说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Gyc</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="页面导航">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Setup environment</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/cconcon.md.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="setup-environment">
+<h1>Setup environment<a class="headerlink" href="#setup-environment" title="此标题的永久链接"></a></h1>
+<ol>
+<li><p>build &amp; install RealTime kernel</p>
+<p>reference : https://docs.ros.org/en/humble/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.html</p>
+<blockquote>
+<div><p>If there is a Error like</p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="o">***</span> <span class="p">[</span><span class="n">debian</span><span class="o">/</span><span class="n">rules</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="n">build</span><span class="p">]</span> <span class="n">Errore</span> <span class="mi">2</span>
+<span class="n">dpkg</span><span class="o">-</span><span class="n">buildpackage</span><span class="p">:</span> <span class="n">Errore</span><span class="p">:</span> <span class="n">debian</span><span class="o">/</span><span class="n">rules</span> <span class="n">build</span> <span class="n">subprocess</span> <span class="n">returned</span> <span class="n">exit</span> <span class="n">status</span> <span class="mi">2</span>
+<span class="n">make</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="o">***</span> <span class="p">[</span><span class="n">scripts</span><span class="o">/</span><span class="n">Makefile</span><span class="o">.</span><span class="n">package</span><span class="p">:</span><span class="mi">77</span><span class="p">:</span> <span class="n">deb</span><span class="o">-</span><span class="n">pkg</span><span class="p">]</span> <span class="n">Errore</span> <span class="mi">2</span>
+<span class="n">make</span><span class="p">:</span> <span class="o">***</span> <span class="p">[</span><span class="n">Makefile</span><span class="p">:</span><span class="mi">1464</span><span class="p">:</span> <span class="n">deb</span><span class="o">-</span><span class="n">pkg</span><span class="p">]</span> <span class="n">Errore</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>reference https://askubuntu.com/questions/1327749/error-in-compiling-installing-realtime-kernel-on-ubuntu-20-04-2-lts</p>
+</div></blockquote>
+</li>
+<li><p>set permission of scheduler and memory lock</p>
+<p>reference : https://docs.ros.org/en/humble/Tutorials/Demos/Real-Time-Programming.html</p>
+</li>
+<li><p>Nvidia error in RealTime kernel</p>
+<p>follow this insturction
+https://github.com/ApolloAuto/apollo/blob/master/docs/01_Installation%20Instructions/how_to_install_apollo_kernel_cn.md</p>
+</li>
+</ol>
+</section>
+<section id="kuka-configuration">
+<h1>KUKA Configuration<a class="headerlink" href="#kuka-configuration" title="此标题的永久链接"></a></h1>
+<section id="right-iiwa">
+<h2>Right iiwa<a class="headerlink" href="#right-iiwa" title="此标题的永久链接"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IP</span> <span class="p">:</span> <span class="mf">192.168.168.20</span>
+
+<span class="n">R</span> <span class="n">Port</span> <span class="p">:</span> <span class="mi">30200</span>
+</pre></div>
+</div>
+</section>
+<section id="left-iiwa">
+<h2>Left iiwa<a class="headerlink" href="#left-iiwa" title="此标题的永久链接"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="n">IP</span> <span class="p">:</span> <span class="mf">192.168.168.10</span>
+
+<span class="n">L</span> <span class="n">Port</span> <span class="p">:</span> <span class="mi">30201</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="simulation">
+<h1>Simulation<a class="headerlink" href="#simulation" title="此标题的永久链接"></a></h1>
+<p>需要通过 source 手动安装 Gazebo 最新版</p>
+<section id="install-gazebo">
+<h2>1. Install Gazebo<a class="headerlink" href="#install-gazebo" title="此标题的永久链接"></a></h2>
+<p>Following as <a class="reference external" href="https://gazebosim.org/docs/garden/install_ubuntu_src">Gazebo Official Install</a></p>
+</section>
+<section id="install-gazebo-ros-plugin">
+<h2>2. Install Gazebo Ros Plugin<a class="headerlink" href="#install-gazebo-ros-plugin" title="此标题的永久链接"></a></h2>
+<p>Clone the <a class="reference external" href="https://github.com/ros-controls/gz_ros2_control">gz_ros2_control package</a></p>
+<p>Check out to the <code class="docutils literal notranslate"><span class="pre">ahcorde/rename/ign_to_gz</span></code> branch.</p>
+<p>This is because the version update of the Gazebo….</p>
+</section>
+<section id="source-the-gazebo-ws-then-export-the-gazebo-model-environment-variables">
+<h2>3. Source the Gazebo ws then export the Gazebo model environment variables<a class="headerlink" href="#source-the-gazebo-ws-then-export-the-gazebo-model-environment-variables" title="此标题的永久链接"></a></h2>
+<p>添加下面这段在 .bashrc 中，这样Gazebo才能找到机器人的描述文件</p>
+<p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GZ_SIM_RESOURCE_PATH=/home/xx/xx_ws/install/iiwa_description/share/</span></code></p>
+<p>! Please replace the “xx” to your real path.</p>
+</section>
+<section id="launch-the-gazebo-robot-enjoy">
+<h2>4. Launch the Gazebo Robot &amp; Enjoy<a class="headerlink" href="#launch-the-gazebo-robot-enjoy" title="此标题的永久链接"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">launch</span> <span class="pre">iiwa_bringup</span> <span class="pre">iiwa_bringup.launch.py</span> <span class="pre">use_sim:=true</span></code></p>
+</section>
+</section>
+<section id="moveit2">
+<h1>Moveit2<a class="headerlink" href="#moveit2" title="此标题的永久链接"></a></h1>
+<p>Moveit2 中添加了伺服的功能，还附带了避障，同时还兼容Moveit本身的规划，用起来很方便。</p>
+<p>关于servo的介绍可以参考这里<a class="reference external" href="https://moveit.picknik.ai/humble/doc/examples/realtime_servo/realtime_servo_tutorial.html">Moveit2 Servo</a></p>
+<section id="id1">
+<h2>1. 安装 Moveit2<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h2>
+<p><a class="reference external" href="https://moveit.ros.org/install-moveit2/source/">Moveit2 官方 Tutorial</a></p>
+<p>这里需要注意，可能在编译的时候需要指定CPU使用数量，不然很容易造成内存过载。</p>
+<p>例如： <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span> <span class="pre">--event-handlers</span> <span class="pre">desktop_notification-</span> <span class="pre">status-</span> <span class="pre">--cmake-args</span> <span class="pre">-DCMAKE_BUILD_TYPE=Release</span> <span class="pre">--parallel-workers</span> <span class="pre">2</span></code></p>
+</section>
+<section id="id2">
+<h2>1. 启动moveit2<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h2>
+<p>最好把 moveit 和 Gazebo 都放到单独的工作空间里，然后把这两个的source写到 .bashrc中</p>
+<p>这里如果是仿真，就要把use_sim_time改成true， 如果是实际可以不带这个参数，默认是false。（实机我还没有测试过）</p>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">launch</span> <span class="pre">iiwa_moveit_config</span> <span class="pre">iiwa_moveit.launch.py</span> <span class="pre">use_sim_time:=true</span></code></p>
+</section>
+<section id="moveit2-servo">
+<h2>2. 启动moveit2 servo<a class="headerlink" href="#moveit2-servo" title="此标题的永久链接"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">launch</span> <span class="pre">iiwa_moveit_config</span> <span class="pre">iiwa_servo.launch.py</span></code></p>
+<p>实际使用的时候要把<code class="docutils literal notranslate"><span class="pre">iiwa_moveit_config/config/iiwa_l_servo.yaml</span></code>和<code class="docutils literal notranslate"><span class="pre">iiwa_moveit_config/config/iiwa_l_servo.yaml</span></code>这两个文件中的<code class="docutils literal notranslate"><span class="pre">use_gazebo</span></code>改成false</p>
+</section>
+<section id="servo">
+<h2>3. 测试Servo<a class="headerlink" href="#servo" title="此标题的永久链接"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span> <span class="pre">iiwa_servo_test</span> <span class="pre">iiwa_servo_test</span></code></p>
+<p>然后往<code class="docutils literal notranslate"><span class="pre">/left/servo_node/test</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/right/servo_node/test</span></code> 这两个话题里发消息就可以了</p>
+</section>
+<hr class="docutils" />
+<section id="id3">
+<h2>自定义运行学逆解<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h2>
+<p>可以修改 iiwa_moveit_plugin 中 src的 chiniksolver_vel_mimic_svd.cpp 这个文件的 CartToJnt 这个函数。</p>
+<p>然后在 iiwa_moveit_config 中 config/kinematics.yaml文件里的kinematics_solver 改成 iiwa_kinematics_plugin/IIwaKinematicsPlugin 就可以。</p>
+<p>如果想换回原来默认的，改成 kdl_kinematics_plugin/KDLKinematicsPlugin</p>
+<hr class="docutils" />
+<p><em>KUKA Programming password:</em> <code class="docutils literal notranslate"><span class="pre">kuka</span></code></p>
+<p><em>KUKA Advanced password:</em> <code class="docutils literal notranslate"><span class="pre">argus</span></code></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, gyc.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用的 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a> 开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

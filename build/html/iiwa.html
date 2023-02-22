@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
-    <link rel="next" title="群插件功能简介" href="plugins.html" />
+    <link rel="next" title="群插件命令说明" href="plugins.html" />
     <link rel="prev" title="ChatGPT Tips" href="ChatGPT.html" /> 
 </head>
 
@@ -53,26 +53,26 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">iiwa install tutorials</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ros">1. ROS安装</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gazebo">2. Gazebo安装</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">安装必要工具</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">获取Gazebo源码</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id6">安装依赖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">编译Gazebo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">安装必要工具</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">获取Gazebo源码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">安装依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">编译Gazebo</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#moveit2">3. Moveit2安装</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id8">安装依赖</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">编译工作空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">安装依赖</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">编译工作空间</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#iiwafir2">4. iiwafir2编译</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id11">5. 测试</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id12">启动Moveit2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">5. 测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id8">启动Moveit2</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#moveit2-servo">启动Moveit2 servo</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#servo">测试Servo</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id13">自定义运行学逆解</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">自定义运行学逆解</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id14">6. 实时系统安装</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id10">6. 实时系统安装</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#realtime">RealTime内核安装</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#set-permission-of-scheduler-and-memory-lock">Set permission of scheduler and memory lock</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#nvidia-error-in-realtime-kernel">Nvidia error in RealTime kernel</a></li>
@@ -81,7 +81,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#kuka-configuration">7. KUKA Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">群插件功能简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">群插件命令说明</a></li>
 </ul>
 
         </div>
@@ -100,7 +100,7 @@
       <li><a href="index.html" class="icon icon-home"></a></li>
       <li class="breadcrumb-item active">iiwa install tutorials</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/iiwa.rst.txt" rel="nofollow"> 查看页面源码</a>
+            <a href="_sources/iiwa.md.txt" rel="nofollow"> 查看页面源码</a>
       </li>
   </ul>
   <hr/>
@@ -118,21 +118,22 @@
 <p>ROS安装可以参照 <a class="reference external" href="https://docs.ros.org/en/humble/Installation.html">ROS安装教程</a>，
 推荐按照官方教程安装，可以了解具体都配置了什么。
 官方安装具体过程不再赘述，下面给出一个安装脚本，经测试可用：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">fishros</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">install</span> <span class="o">-</span><span class="n">O</span> <span class="n">fishros</span> <span class="o">&amp;&amp;</span> <span class="o">.</span> <span class="n">fishros</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>http://fishros.com/install<span class="w"> </span>-O<span class="w"> </span>fishros<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>fishros
 </pre></div>
 </div>
-<p>这是由博主小鱼写的自动安装脚本，可以自动安装ROS humble版本 <a class="reference external" href="https://github.com/fishros/install">Github开源地址</a>。
+<p>这是由博主小鱼写的自动安装脚本，可以自动安装ROS humble版本(<a class="reference external" href="https://github.com/fishros/install">Github开源地址</a>)。
 输入命令后，输入密码，在选项界面选择1-一键安装ROS。之后会问你需不需要换源，根据实际情况来选择。
-如果有能力做终端代理，可以不用换源；也可以自己手动换源（具体参照： <a href="#id15"><span class="problematic" id="id16">`Ubuntu 22.04 换国内源&lt;https://blog.csdn.net/xiangxianghehe/article/details/122856771&gt;`_</span></a>），
-或者通过这里的脚本换源（未测试）。再之后会让你选择ROS版本，这里选择1-humble(ROS2)，再选择1-humble(ROS2)桌面版。
+如果有能力做终端代理，可以不用换源；也可以自己手动换源（具体参照： <a class="reference external" href="https://blog.csdn.net/xiangxianghehe/article/details/122856771">Ubuntu 22.04 换国内源</a>），
+或者通过这里的脚本换源（未测试）。</p>
+<p>再之后会让你选择ROS版本，这里选择1-humble(ROS2)，再选择1-humble(ROS2)桌面版。
 之后出现依赖问题，按照提示进行就行。过程比较久，耐心等候，直到看到安装成功提示为止。
 要检查ROS2是否成功安装，可以分别打开两个终端，运行代码：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">run</span> <span class="n">demo_nodes_cpp</span> <span class="n">talker</span>
-<span class="n">ros2</span> <span class="n">run</span> <span class="n">demo_nodes_py</span> <span class="n">listener</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_cpp<span class="w"> </span>talker
+ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_py<span class="w"> </span>listener
 </pre></div>
 </div>
 <p>第二个终端中，订阅第一个节点发出的信息，如：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[INFO] [listener]: I heard: [Hello, world!]
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span><span class="o">[</span>listener<span class="o">]</span>:<span class="w"> </span>I<span class="w"> </span>heard:<span class="w"> </span><span class="o">[</span>Hello,<span class="w"> </span>world!<span class="o">]</span>
 </pre></div>
 </div>
 <p>这表明 ROS 2 系统已经成功安装，并且可以正常运行示例程序。如果你看到其他的输出或错误信息，可以参考 ROS 2 的官方文档或社区支持，以解决问题。</p>
@@ -140,115 +141,122 @@
 <section id="gazebo">
 <h2>2. Gazebo安装<a class="headerlink" href="#gazebo" title="此标题的永久链接"></a></h2>
 <p>注意Gazebo安装必须通过Source安装，
-具体过程参照 <a href="#id2"><span class="problematic" id="id3">`</span></a>Gazebo安装教程 &lt;<a class="reference external" href="https://gazebosim.org/docs/garden/install_ubuntu_src/">https://gazebosim.org/docs/garden/install_ubuntu_src/</a>&gt;`_编写，
+具体过程参照<a class="reference external" href="https://gazebosim.org/docs/garden/install_ubuntu_src/">Gazebo安装教程</a>编写，
 下面给出详细步骤。</p>
-<section id="id4">
-<h3>安装必要工具<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
+<section id="id1">
+<h3>安装必要工具<a class="headerlink" href="#id1" title="此标题的永久链接"></a></h3>
 <p>通过apt安装：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
-<span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="n">python3</span><span class="o">-</span><span class="n">pip</span> <span class="n">wget</span> <span class="n">lsb</span><span class="o">-</span><span class="n">release</span> <span class="n">gnupg</span> <span class="n">curl</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>wget<span class="w"> </span>lsb-release<span class="w"> </span>gnupg<span class="w"> </span>curl
 </pre></div>
 </div>
 <p>在执行update过程如果出现Failed to fetch错误，需要给apt-get添加代理或者换源，
-具体参照 <a class="reference external" href="https://blog.csdn.net/xiangxianghehe/article/details/122856771">Ubuntu 22.04 换国内源</a>。</p>
-<p>注意，此处建议将源中的src部分注释清除掉，否则在之后的安装中会出现无法找到软件包的错误。（待考证）</p>
+具体参照<a class="reference external" href="https://blog.csdn.net/xiangxianghehe/article/details/122856771">Ubuntu 22.04 换国内源</a>。</p>
+<blockquote>
+<div><p>注意，如果之后的安装出现找不到安装包的错误，可以将源码部分注释取消掉尝试。</p>
+</div></blockquote>
 <p>通过pip安装vsctool和colcon：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">vcstool</span> <span class="o">||</span> <span class="n">pip3</span> <span class="n">install</span> <span class="n">vcstool</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">colcon</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">extensions</span> <span class="o">||</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">colcon</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">extensions</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>vcstool<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>vcstool
+pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions
 </pre></div>
 </div>
 <p>注意pip中没有报错，完成了安装(Successfully installed …)。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">show</span> <span class="n">vcstool</span> <span class="o">||</span> <span class="n">pip3</span> <span class="n">show</span> <span class="n">vcstool</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">Location</span>
-<span class="n">pip</span> <span class="n">show</span> <span class="n">colcon</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">extensions</span> <span class="o">||</span> <span class="n">pip3</span> <span class="n">show</span> <span class="n">colcon</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">extensions</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">Location</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
+pip<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
 </pre></div>
 </div>
-<p>确认你的安装位置在 <code class="file docutils literal notranslate"><span class="pre">%HOME/.local</span></code> 中后，将该路径添加到系统路径中，命令如下：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export PATH=$PATH:$HOME/.local/bin/
+<p>确认你的安装位置在 <code class="docutils literal notranslate"><span class="pre">%HOME/.local</span></code> 中后，将该路径添加到系统路径中，命令如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.local/bin/
 </pre></div>
 </div>
 <p>官网中还介绍了apt安装方式，比pip安装更容易一些，经过尝试也是可以的。
 下面安装Git，用于控制vcstool版本：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">git</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git
 </pre></div>
 </div>
 </section>
-<section id="id5">
-<h3>获取Gazebo源码<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
+<section id="id2">
+<h3>获取Gazebo源码<a class="headerlink" href="#id2" title="此标题的永久链接"></a></h3>
 <p>接着，创建一个工作空间，用于存放Gazebo的源码：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">workspace</span><span class="o">/</span><span class="n">src</span>
-<span class="n">cd</span> <span class="o">~/</span><span class="n">workspace</span><span class="o">/</span><span class="n">src</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/workspace/src
+<span class="nb">cd</span><span class="w"> </span>~/workspace/src
 </pre></div>
 </div>
-<p>当然你也可以随意命名，这里只是引用了原教程的命名方式。接下来通过yaml文件下载gazebo-garden的源码：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">raw</span><span class="o">.</span><span class="n">githubusercontent</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gazebo</span><span class="o">-</span><span class="n">tooling</span><span class="o">/</span><span class="n">gazebodistro</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">collection</span><span class="o">-</span><span class="n">garden</span><span class="o">.</span><span class="n">yaml</span>
-<span class="n">vcs</span> <span class="kn">import</span> <span class="o">&lt;</span> <span class="n">collection</span><span class="o">-</span><span class="n">garden</span><span class="o">.</span><span class="n">yaml</span>
+<blockquote>
+<div><p>当然你也可以随意命名，这里只是引用了原教程的命名方式。</p>
+</div></blockquote>
+<p>接下来通过yaml文件下载gazebo-garden的源码：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
+vcs<span class="w"> </span>import<span class="w"> </span>&lt;<span class="w"> </span>collection-garden.yaml
 </pre></div>
 </div>
-<p>从这步开始涉及的软件包下载过程在没有代理的情况下，下载会比较缓慢，请酌情使用代理。</p>
+<blockquote>
+<div><p>从这步开始涉及的软件包下载过程在没有代理的情况下，下载会比较缓慢甚至断开连接，请酌情使用代理。</p>
+</div></blockquote>
 </section>
-<section id="id6">
-<h3>安装依赖<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
+<section id="id3">
+<h3>安装依赖<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
 <p>在编译工作空间之前，需要安装相关的依赖。通过packages.osrfoundation.org的源安装依赖：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">packages</span><span class="o">.</span><span class="n">osrfoundation</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">gazebo</span><span class="o">.</span><span class="n">gpg</span> <span class="o">-</span><span class="n">O</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">keyrings</span><span class="o">/</span><span class="n">pkgs</span><span class="o">-</span><span class="n">osrf</span><span class="o">-</span><span class="n">archive</span><span class="o">-</span><span class="n">keyring</span><span class="o">.</span><span class="n">gpg</span>
-<span class="n">echo</span> <span class="s2">&quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main&quot;</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">tee</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">apt</span><span class="o">/</span><span class="n">sources</span><span class="o">.</span><span class="n">list</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">gazebo</span><span class="o">-</span><span class="n">stable</span><span class="o">.</span><span class="n">list</span> <span class="o">&gt;</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">null</span>
-<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>wget<span class="w"> </span>https://packages.osrfoundation.org/gazebo.gpg<span class="w"> </span>-O<span class="w"> </span>/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/gazebo-stable.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </pre></div>
 </div>
 <p>下面通过apt安装依赖：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> sudo apt -y install \
-$(sort -u $(find . -iname &#39;packages-&#39;`lsb_release -cs`&#39;.apt&#39; -o -iname &#39;packages.apt&#39; | grep -v &#39;/\.git/&#39;) | sed &#39;/gz\|sdf/d&#39; | tr &#39;\n&#39; &#39; &#39;)
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
+<span class="k">$(</span>sort<span class="w"> </span>-u<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;packages-&#39;</span><span class="sb">`</span>lsb_release<span class="w"> </span>-cs<span class="sb">`</span><span class="s1">&#39;.apt&#39;</span><span class="w"> </span>-o<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;packages.apt&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;/\.git/&#39;</span><span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;/gz\|sdf/d&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span>
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h3>编译Gazebo<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h3>
+<section id="id4">
+<h3>编译Gazebo<a class="headerlink" href="#id4" title="此标题的永久链接"></a></h3>
 <p>依赖已经全部装好，接下来就可以编译Gazebo了：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">workspace</span>
-<span class="n">colcon</span> <span class="n">graph</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace
+colcon<span class="w"> </span>graph
 </pre></div>
 </div>
-<p>命令行会输出ROS 2 packages 的构建依赖图。在此之前，我们安装仿真iiwa需要的包ros_gz。</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">src</span><span class="o">/</span>
+<p>命令行会输出ROS 2 packages的构建依赖图。在此之前，我们安装仿真iiwa需要的包ros_gz。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>src/
 <span class="c1"># 设置gazebo版本号</span>
-<span class="n">export</span> <span class="n">GZ_VERSION</span><span class="o">=</span><span class="n">garden</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GZ_VERSION</span><span class="o">=</span>garden
 <span class="c1"># 下载源码</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gazebosim</span><span class="o">/</span><span class="n">ros_gz</span><span class="o">.</span><span class="n">git</span> <span class="o">-</span><span class="n">b</span> <span class="n">ros2</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="o">-</span><span class="n">b</span> <span class="n">ahcorde</span><span class="o">/</span><span class="n">rename</span><span class="o">/</span><span class="n">ign_to_gz</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ros</span><span class="o">-</span><span class="n">controls</span><span class="o">/</span><span class="n">gz_ros2_control</span><span class="o">.</span><span class="n">git</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/gazebosim/ros_gz.git<span class="w"> </span>-b<span class="w"> </span>ros2
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>ahcorde/rename/ign_to_gz<span class="w"> </span>https://github.com/ros-controls/gz_ros2_control.git
 </pre></div>
 </div>
 <p>接下来，我们安装依赖：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">workspace</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace
 </pre></div>
 </div>
 <p>如果rosdep还没有初始化，执行如下命令：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rosdep</span> <span class="n">init</span>
-<span class="n">rosdep</span> <span class="n">update</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rosdep<span class="w"> </span>init
+rosdep<span class="w"> </span>update
 </pre></div>
 </div>
 <p>再执行：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rosdep</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="o">--</span><span class="n">from</span><span class="o">-</span><span class="n">paths</span> <span class="n">src</span> <span class="o">-</span><span class="n">i</span> <span class="o">-</span><span class="n">y</span> <span class="o">--</span><span class="n">rosdistro</span> <span class="n">rolling</span>
+<div class="highlight-bash安装位置 notranslate"><div class="highlight"><pre><span></span>rosdep install -r --from-paths src -i -y --rosdistro rolling
 </pre></div>
 </div>
 <p>看到命令行提示依赖全部安装成功且没有出错的时候，执行编译命令：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">build</span> <span class="o">--</span><span class="n">merge</span><span class="o">-</span><span class="n">install</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>注意此处如果终端卡死或者系统卡死，要为上述命令添加线程数量限制，如：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">build</span> <span class="o">--</span><span class="n">merge</span><span class="o">-</span><span class="n">install</span> <span class="o">--</span><span class="n">parallel</span><span class="o">-</span><span class="n">workers</span> <span class="mi">2</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install<span class="w"> </span>--parallel-workers<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
 <p>如果还会卡死，试着改成单线程：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">build</span> <span class="o">--</span><span class="n">merge</span><span class="o">-</span><span class="n">install</span> <span class="o">--</span><span class="n">executor</span> <span class="n">sequential</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install<span class="w"> </span>--executor<span class="w"> </span>sequential
 </pre></div>
 </div>
 <p>观察到编译成功的提示后，gazebo就安装成功了。如果看到各种报错信息，请在issue中提出。
 将gazebo的环境变量添加到.bashrc中：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;source ~/workspace/install/setup.bash&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
-<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ~/workspace/install/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
 </pre></div>
 </div>
 <p>运行仿真：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">launch</span> <span class="n">iiwa_bringup</span> <span class="n">iiwa_bringup</span><span class="o">.</span><span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="n">use_sim</span><span class="o">:=</span><span class="n">true</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>iiwa_bringup<span class="w"> </span>iiwa_bringup.launch.py<span class="w"> </span>use_sim:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </section>
@@ -256,83 +264,83 @@ $(sort -u $(find . -iname &#39;packages-&#39;`lsb_release -cs`&#39;.apt&#39; -o 
 <section id="moveit2">
 <h2>3. Moveit2安装<a class="headerlink" href="#moveit2" title="此标题的永久链接"></a></h2>
 <p>Moveit2 中添加了伺服的功能，还附带了避障，同时还兼容Moveit本身的规划，用起来很方便。</p>
-<p>关于servo的介绍可以参考这里`Moveit2 Servo &lt;<a class="reference external" href="https://moveit.picknik.ai/humble/doc/examples/realtime_servo/realtime_servo_tutorial.html">https://moveit.picknik.ai/humble/doc/examples/realtime_servo/realtime_servo_tutorial.html</a>&gt;`_</p>
-<section id="id8">
-<h3>安装依赖<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
+<p>关于servo的介绍可以参考这里<a class="reference external" href="https://moveit.picknik.ai/humble/doc/examples/realtime_servo/realtime_servo_tutorial.html">Moveit2 Servo</a>。</p>
+<section id="id5">
+<h3>安装依赖<a class="headerlink" href="#id5" title="此标题的永久链接"></a></h3>
 <p>接下来安装Moveit2，具体安装过程参考：<a class="reference external" href="https://moveit.ros.org/install-moveit2/source/">Moveit2安装</a>。初始化安装器：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">update</span>
-<span class="n">sudo</span> <span class="n">apt</span> <span class="n">dist</span><span class="o">-</span><span class="n">upgrade</span>
-<span class="n">rosdep</span> <span class="n">update</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>dist-upgrade
+rosdep<span class="w"> </span>update
 </pre></div>
 </div>
 <p>通过apt和pip安装依赖：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> \
-<span class="n">build</span><span class="o">-</span><span class="n">essential</span> \
-<span class="n">cmake</span> \
-<span class="n">git</span> \
-<span class="n">libbullet</span><span class="o">-</span><span class="n">dev</span> \
-<span class="n">python3</span><span class="o">-</span><span class="n">colcon</span><span class="o">-</span><span class="n">common</span><span class="o">-</span><span class="n">extensions</span> \
-<span class="n">python3</span><span class="o">-</span><span class="n">flake8</span> \
-<span class="n">python3</span><span class="o">-</span><span class="n">pip</span> \
-<span class="n">python3</span><span class="o">-</span><span class="n">pytest</span><span class="o">-</span><span class="n">cov</span> \
-<span class="n">python3</span><span class="o">-</span><span class="n">rosdep</span> \
-<span class="n">python3</span><span class="o">-</span><span class="n">setuptools</span> \
-<span class="n">python3</span><span class="o">-</span><span class="n">vcstool</span> \
-<span class="n">wget</span> <span class="o">&amp;&amp;</span> \
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+build-essential<span class="w"> </span><span class="se">\</span>
+cmake<span class="w"> </span><span class="se">\</span>
+git<span class="w"> </span><span class="se">\</span>
+libbullet-dev<span class="w"> </span><span class="se">\</span>
+python3-colcon-common-extensions<span class="w"> </span><span class="se">\</span>
+python3-flake8<span class="w"> </span><span class="se">\</span>
+python3-pip<span class="w"> </span><span class="se">\</span>
+python3-pytest-cov<span class="w"> </span><span class="se">\</span>
+python3-rosdep<span class="w"> </span><span class="se">\</span>
+python3-setuptools<span class="w"> </span><span class="se">\</span>
+python3-vcstool<span class="w"> </span><span class="se">\</span>
+wget<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="se">\</span>
 <span class="c1"># install some pip packages needed for testing</span>
-<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> \
-<span class="n">argcomplete</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">blind</span><span class="o">-</span><span class="k">except</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">builtins</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">class</span><span class="o">-</span><span class="n">newline</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">comprehensions</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">deprecated</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">docstrings</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">import</span><span class="o">-</span><span class="n">order</span> \
-<span class="n">flake8</span><span class="o">-</span><span class="n">quotes</span> \
-<span class="n">pytest</span><span class="o">-</span><span class="n">repeat</span> \
-<span class="n">pytest</span><span class="o">-</span><span class="n">rerunfailures</span> \
-<span class="n">pytest</span>
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span><span class="se">\</span>
+argcomplete<span class="w"> </span><span class="se">\</span>
+flake8-blind-except<span class="w"> </span><span class="se">\</span>
+flake8-builtins<span class="w"> </span><span class="se">\</span>
+flake8-class-newline<span class="w"> </span><span class="se">\</span>
+flake8-comprehensions<span class="w"> </span><span class="se">\</span>
+flake8-deprecated<span class="w"> </span><span class="se">\</span>
+flake8-docstrings<span class="w"> </span><span class="se">\</span>
+flake8-import-order<span class="w"> </span><span class="se">\</span>
+flake8-quotes<span class="w"> </span><span class="se">\</span>
+pytest-repeat<span class="w"> </span><span class="se">\</span>
+pytest-rerunfailures<span class="w"> </span><span class="se">\</span>
+pytest
 </pre></div>
 </div>
 <p>看到安装成功提示后，进行接下来的步骤。卸载之前通过apt安装的moveit：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo apt remove ros-$ROS_DISTRO-moveit*
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-moveit*
 </pre></div>
 </div>
 </section>
-<section id="id10">
-<h3>编译工作空间<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h3>
+<section id="id6">
+<h3>编译工作空间<a class="headerlink" href="#id6" title="此标题的永久链接"></a></h3>
 <p>创造一个工作空间，用于存放Moveit2的源码：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export COLCON_WS=~/ws_moveit2/
-mkdir -p $COLCON_WS/src
-cd $COLCON_WS/src
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">COLCON_WS</span><span class="o">=</span>~/ws_moveit2/
+mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$COLCON_WS</span>/src
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$COLCON_WS</span>/src
 </pre></div>
 </div>
 <p>下载源码：
 <strong>Foxy, Galactic, Humble - stable</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ros-planning/moveit2.git -b $ROS_DISTRO
-for repo in moveit2/moveit2.repos $(f=&quot;moveit2/moveit2_$ROS_DISTRO.repos&quot;; test -r $f &amp;&amp; echo $f); do vcs import &lt; &quot;$repo&quot;; done
-rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-planning/moveit2.git<span class="w"> </span>-b<span class="w"> </span><span class="nv">$ROS_DISTRO</span>
+<span class="k">for</span><span class="w"> </span>repo<span class="w"> </span><span class="k">in</span><span class="w"> </span>moveit2/moveit2.repos<span class="w"> </span><span class="k">$(</span><span class="nv">f</span><span class="o">=</span><span class="s2">&quot;moveit2/moveit2_</span><span class="nv">$ROS_DISTRO</span><span class="s2">.repos&quot;</span><span class="p">;</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span>-r<span class="w"> </span><span class="nv">$f</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$f</span><span class="k">)</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>vcs<span class="w"> </span>import<span class="w"> </span>&lt;<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$repo</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+rosdep<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>--from-paths<span class="w"> </span>.<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w"> </span>-y
 </pre></div>
 </div>
 <p><strong>Middleware</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-$ROS_DISTRO-rmw-cyclonedds-cpp
-export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>ros-<span class="nv">$ROS_DISTRO</span>-rmw-cyclonedds-cpp
+<span class="nb">export</span><span class="w"> </span><span class="nv">RMW_IMPLEMENTATION</span><span class="o">=</span>rmw_cyclonedds_cpp
 </pre></div>
 </div>
 <p>如果之后也要继续使用这个Middleware，可以将其添加到.bashrc中：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
-<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
 </pre></div>
 </div>
 <p>编译工作空间：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cd $COLCON_WS
-colcon build --event-handlers desktop_notification- status- --cmake-args -DCMAKE_BUILD_TYPE=Release
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span><span class="nv">$COLCON_WS</span>
+colcon<span class="w"> </span>build<span class="w"> </span>--event-handlers<span class="w"> </span>desktop_notification-<span class="w"> </span>status-<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </pre></div>
 </div>
 <p>看到编译成功后，将moveit2添加到.bashrc中：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;source ws_moveit2/install/setup.bash&quot;</span> <span class="o">&gt;&gt;</span> <span class="o">~/.</span><span class="n">bashrc</span>
-<span class="n">source</span> <span class="o">~/.</span><span class="n">bashrc</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;source ws_moveit2/install/setup.bash&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc
+<span class="nb">source</span><span class="w"> </span>~/.bashrc
 </pre></div>
 </div>
 <p>这样就安装好Moveit2了。</p>
@@ -341,32 +349,32 @@ colcon build --event-handlers desktop_notification- status- --cmake-args -DCMAKE
 <section id="iiwafir2">
 <h2>4. iiwafir2编译<a class="headerlink" href="#iiwafir2" title="此标题的永久链接"></a></h2>
 <p>在校园网环境下下载源码：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">~/</span><span class="n">iiwa_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">cd</span> <span class="o">~/</span><span class="n">iiwa_ws</span><span class="o">/</span><span class="n">src</span>
-<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">git</span><span class="o">.</span><span class="n">robotics</span><span class="o">-</span><span class="n">hitsz</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">iiwa</span><span class="o">/</span><span class="n">iiwafri2</span><span class="o">.</span><span class="n">git</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/iiwa_ws/src
+<span class="nb">cd</span><span class="w"> </span>~/iiwa_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>https://git.robotics-hitsz.com/iiwa/iiwafri2.git
 </pre></div>
 </div>
 <p>如果下载不下来，可以复制git链接去网页上下载压缩包。接下来编译：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span><span class="n">iiwa_ws</span>
-<span class="n">colcon</span> <span class="n">build</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/iiwa_ws
+colcon<span class="w"> </span>build
 </pre></div>
 </div>
 <p>看到编译成功的信息后，我们就完成了全部的安装过程。</p>
 </section>
-<section id="id11">
-<h2>5. 测试<a class="headerlink" href="#id11" title="此标题的永久链接"></a></h2>
-<section id="id12">
-<h3>启动Moveit2<a class="headerlink" href="#id12" title="此标题的永久链接"></a></h3>
+<section id="id7">
+<h2>5. 测试<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
+<section id="id8">
+<h3>启动Moveit2<a class="headerlink" href="#id8" title="此标题的永久链接"></a></h3>
 <p>最好把 moveit 和 Gazebo 都放到单独的工作空间里，然后把这两个的source写到 .bashrc中</p>
 <p>这里如果是仿真，就要把use_sim_time改成true， 如果是实际可以不带这个参数，默认是false。（实机我还没有测试过）</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">launch</span> <span class="n">iiwa_moveit_config</span> <span class="n">iiwa_moveit</span><span class="o">.</span><span class="n">launch</span><span class="o">.</span><span class="n">py</span> <span class="n">use_sim_time</span><span class="o">:=</span><span class="n">true</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>iiwa_moveit_config<span class="w"> </span>iiwa_moveit.launch.py<span class="w"> </span>use_sim_time:<span class="o">=</span><span class="nb">true</span>
 </pre></div>
 </div>
 </section>
 <section id="moveit2-servo">
 <h3>启动Moveit2 servo<a class="headerlink" href="#moveit2-servo" title="此标题的永久链接"></a></h3>
 <p>运行程序：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">launch</span> <span class="n">iiwa_moveit_config</span> <span class="n">iiwa_servo</span><span class="o">.</span><span class="n">launch</span><span class="o">.</span><span class="n">py</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>iiwa_moveit_config<span class="w"> </span>iiwa_servo.launch.py
 </pre></div>
 </div>
 <p>实际使用的时候要把iiwa_moveit_config/config/iiwa_l_servo.yaml和iiwa_moveit_config/config/iiwa_l_servo.yaml这两个文件中的use_gazebo改成false。</p>
@@ -374,56 +382,58 @@ colcon build --event-handlers desktop_notification- status- --cmake-args -DCMAKE
 <section id="servo">
 <h3>测试Servo<a class="headerlink" href="#servo" title="此标题的永久链接"></a></h3>
 <p>运行程序：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">run</span> <span class="n">iiwa_servo_test</span> <span class="n">iiwa_servo_test</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>iiwa_servo_test<span class="w"> </span>iiwa_servo_test
 </pre></div>
 </div>
-<p>然后往 <code class="file docutils literal notranslate"><span class="pre">/left/servo_node/test</span></code> 和 <code class="file docutils literal notranslate"><span class="pre">/right/servo_node/test</span></code> 这两个话题里发消息就可以了。</p>
+<p>然后往 <code class="docutils literal notranslate"><span class="pre">/left/servo_node/test</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/right/servo_node/test</span></code> 这两个话题里发消息就可以了。</p>
 </section>
-<section id="id13">
-<h3>自定义运行学逆解<a class="headerlink" href="#id13" title="此标题的永久链接"></a></h3>
-<p>可以修改 iiwa_moveit_plugin 中 src的 chiniksolver_vel_mimic_svd.cpp 这个文件的 CartToJnt 这个函数。</p>
-<p>然后在 iiwa_moveit_config 中 config/kinematics.yaml文件里的kinematics_solver 改成 iiwa_kinematics_plugin/IIwaKinematicsPlugin 就可以。</p>
-<p>如果想换回原来默认的，改成 kdl_kinematics_plugin/KDLKinematicsPlugin</p>
-<p><cite>KUKA Programming password: kuka</cite></p>
-<p><cite>KUKA Advanced password: argus</cite></p>
+<section id="id9">
+<h3>自定义运行学逆解<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>
+<p>可以修改 <code class="docutils literal notranslate"><span class="pre">iiwa_moveit_plugin</span></code> 中src的 <code class="docutils literal notranslate"><span class="pre">chiniksolver_vel_mimic_svd.cpp</span></code> 这个文件的 <code class="docutils literal notranslate"><span class="pre">CartToJnt</span></code> 这个函数。</p>
+<p>然后在 <code class="docutils literal notranslate"><span class="pre">iiwa_moveit_config</span></code> 中 <code class="docutils literal notranslate"><span class="pre">config/kinematics.yaml</span></code> 文件里的 <code class="docutils literal notranslate"><span class="pre">kinematics_solver</span></code> 改成 <code class="docutils literal notranslate"><span class="pre">iiwa_kinematics_plugin/IIwaKinematicsPlugin</span></code> 就可以。</p>
+<p>如果想换回原来默认的，改成 <code class="docutils literal notranslate"><span class="pre">kdl_kinematics_plugin/KDLKinematicsPlugin</span></code> 。</p>
+<p><em>KUKA Programming password:</em> <code class="docutils literal notranslate"><span class="pre">kuka</span></code></p>
+<p><em>KUKA Advanced password:</em> <code class="docutils literal notranslate"><span class="pre">argus</span></code></p>
 </section>
 </section>
-<section id="id14">
-<h2>6. 实时系统安装<a class="headerlink" href="#id14" title="此标题的永久链接"></a></h2>
+<section id="id10">
+<h2>6. 实时系统安装<a class="headerlink" href="#id10" title="此标题的永久链接"></a></h2>
 <section id="realtime">
 <h3>RealTime内核安装<a class="headerlink" href="#realtime" title="此标题的永久链接"></a></h3>
-<p>reference: <a class="reference external" href="https://docs.ros.org/en/humble/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.html">https://docs.ros.org/en/humble/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.html</a>
-If there is a Error like</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="o">***</span> <span class="p">[</span><span class="n">debian</span><span class="o">/</span><span class="n">rules</span><span class="p">:</span><span class="mi">6</span><span class="p">:</span> <span class="n">build</span><span class="p">]</span> <span class="n">Errore</span> <span class="mi">2</span>
-<span class="n">dpkg</span><span class="o">-</span><span class="n">buildpackage</span><span class="p">:</span> <span class="n">Errore</span><span class="p">:</span> <span class="n">debian</span><span class="o">/</span><span class="n">rules</span> <span class="n">build</span> <span class="n">subprocess</span> <span class="n">returned</span> <span class="n">exit</span> <span class="n">status</span> <span class="mi">2</span>
-<span class="n">make</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="o">***</span> <span class="p">[</span><span class="n">scripts</span><span class="o">/</span><span class="n">Makefile</span><span class="o">.</span><span class="n">package</span><span class="p">:</span><span class="mi">77</span><span class="p">:</span> <span class="n">deb</span><span class="o">-</span><span class="n">pkg</span><span class="p">]</span> <span class="n">Errore</span> <span class="mi">2</span>
-<span class="n">make</span><span class="p">:</span> <span class="o">***</span> <span class="p">[</span><span class="n">Makefile</span><span class="p">:</span><span class="mi">1464</span><span class="p">:</span> <span class="n">deb</span><span class="o">-</span><span class="n">pkg</span><span class="p">]</span> <span class="n">Errore</span> <span class="mi">2</span>
+<p>reference: https://docs.ros.org/en/humble/Tutorials/Miscellaneous/Building-Realtime-rt_preempt-kernel-for-ROS-2.html</p>
+<blockquote>
+<div><p>If there is a Error like</p>
+</div></blockquote>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="o">[</span><span class="m">2</span><span class="o">]</span>:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>debian/rules:6:<span class="w"> </span>build<span class="o">]</span><span class="w"> </span>Errore<span class="w"> </span><span class="m">2</span>
+dpkg-buildpackage:<span class="w"> </span>Errore:<span class="w"> </span>debian/rules<span class="w"> </span>build<span class="w"> </span>subprocess<span class="w"> </span>returned<span class="w"> </span><span class="nb">exit</span><span class="w"> </span>status<span class="w"> </span><span class="m">2</span>
+make<span class="o">[</span><span class="m">1</span><span class="o">]</span>:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>scripts/Makefile.package:77:<span class="w"> </span>deb-pkg<span class="o">]</span><span class="w"> </span>Errore<span class="w"> </span><span class="m">2</span>
+make:<span class="w"> </span>***<span class="w"> </span><span class="o">[</span>Makefile:1464:<span class="w"> </span>deb-pkg<span class="o">]</span><span class="w"> </span>Errore<span class="w"> </span><span class="m">2</span>
 </pre></div>
 </div>
-<p>reference: <a class="reference external" href="https://askubuntu.com/questions/1327749/error-in-compiling-installing-realtime-kernel-on-ubuntu-20-04-2-lts">https://askubuntu.com/questions/1327749/error-in-compiling-installing-realtime-kernel-on-ubuntu-20-04-2-lts</a></p>
+<p>reference: https://askubuntu.com/questions/1327749/error-in-compiling-installing-realtime-kernel-on-ubuntu-20-04-2-lts</p>
 </section>
 <section id="set-permission-of-scheduler-and-memory-lock">
 <h3>Set permission of scheduler and memory lock<a class="headerlink" href="#set-permission-of-scheduler-and-memory-lock" title="此标题的永久链接"></a></h3>
-<p>reference: <a class="reference external" href="https://docs.ros.org/en/humble/Tutorials/Demos/Real-Time-Programming.html">https://docs.ros.org/en/humble/Tutorials/Demos/Real-Time-Programming.html</a></p>
+<p>reference: https://docs.ros.org/en/humble/Tutorials/Demos/Real-Time-Programming.html</p>
 </section>
 <section id="nvidia-error-in-realtime-kernel">
 <h3>Nvidia error in RealTime kernel<a class="headerlink" href="#nvidia-error-in-realtime-kernel" title="此标题的永久链接"></a></h3>
-<p>follow this insturction</p>
-<p><a class="reference external" href="https://github.com/ApolloAuto/apollo/blob/master/docs/01_Installation%20Instructions/how_to_install_apollo_kernel_cn.md">https://github.com/ApolloAuto/apollo/blob/master/docs/01_Installation%20Instructions/how_to_install_apollo_kernel_cn.md</a></p>
+<p>Follow this insturction</p>
+<p>https://github.com/ApolloAuto/apollo/blob/master/docs/01_Installation%20Instructions/how_to_install_apollo_kernel_cn.md</p>
 </section>
 </section>
 <section id="kuka-configuration">
 <h2>7. KUKA Configuration<a class="headerlink" href="#kuka-configuration" title="此标题的永久链接"></a></h2>
-<p>Right iiwa</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IP</span> <span class="p">:</span> <span class="mf">192.168.168.20</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Right</span> <span class="n">iiwa</span>
+   <span class="n">IP</span> <span class="p">:</span> <span class="mf">192.168.168.20</span>
 
-<span class="n">R</span> <span class="n">Port</span> <span class="p">:</span> <span class="mi">30200</span>
-</pre></div>
-</div>
-<p>Left iiwa</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="n">IP</span> <span class="p">:</span> <span class="mf">192.168.168.10</span>
+   <span class="n">R</span> <span class="n">Port</span> <span class="p">:</span> <span class="mi">30200</span>
 
-<span class="n">L</span> <span class="n">Port</span> <span class="p">:</span> <span class="mi">30201</span>
+<span class="n">Left</span> <span class="n">iiwa</span>
+<span class="p">::</span>
+   <span class="n">L</span> <span class="n">IP</span> <span class="p">:</span> <span class="mf">192.168.168.10</span>
+
+   <span class="n">L</span> <span class="n">Port</span> <span class="p">:</span> <span class="mi">30201</span>
 </pre></div>
 </div>
 </section>
@@ -434,7 +444,7 @@ If there is a Error like</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
         <a href="ChatGPT.html" class="btn btn-neutral float-left" title="ChatGPT Tips" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
-        <a href="plugins.html" class="btn btn-neutral float-right" title="群插件功能简介" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="plugins.html" class="btn btn-neutral float-right" title="群插件命令说明" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -110,15 +110,16 @@
              
   <section id="iiwa-install-tutorials">
 <h1>iiwa install tutorials<a class="headerlink" href="#iiwa-install-tutorials" title="此标题的永久链接"></a></h1>
-<p>配置环境：Ubuntu 22.04 LTS初始环境
-本教程旨在帮助您在Ubuntu 22.04 LTS上安装iiwa软件包。教程运行在Ubuntu 22.04 LTS默认环境下，Ubuntu系统的安装可以参照网上的资料，此处不再赘述。</p>
+<p>配置环境：Ubuntu 22.04 LTS初始环境 + ros2 humble</p>
+<p>本教程旨在帮助您在Ubuntu 22.04 LTS上安装iiwa软件包。教程运行在Ubuntu 22.04 LTS默认环境下，Ubuntu系统的安装可以参照网上的资料，此处不再赘述。</p>
+<p>（建议使用和本教程完全相同的配置环境，目前尝试过在虚拟机下安装不成功， Ubuntu20.04不成功）</p>
 <p><a class="reference external" href="https://www.sysgeek.cn/install-ubuntu-22-04-lts/">Ubuntu22.04 安装教程</a></p>
 <section id="ros">
 <h2>1. ROS安装<a class="headerlink" href="#ros" title="此标题的永久链接"></a></h2>
 <p>ROS安装可以参照 <a class="reference external" href="https://docs.ros.org/en/humble/Installation.html">ROS安装教程</a>，
 推荐按照官方教程安装，可以了解具体都配置了什么。
 官方安装具体过程不再赘述，下面给出一个安装脚本，经测试可用：</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>http://fishros.com/install<span class="w"> </span>-O<span class="w"> </span>fishros<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>fishros
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>http://fishros.com/install<span class="w"> </span>-O<span class="w"> </span>fishros<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>.<span class="w"> </span>fishros
 </pre></div>
 </div>
 <p>这是由博主小鱼写的自动安装脚本，可以自动安装ROS humble版本(<a class="reference external" href="https://github.com/fishros/install">Github开源地址</a>)。
@@ -140,6 +141,19 @@ ros2<span class="w"> </span>run<span class="w"> </span>demo_nodes_py<span class=
 </section>
 <section id="gazebo">
 <h2>2. Gazebo安装<a class="headerlink" href="#gazebo" title="此标题的永久链接"></a></h2>
+<p>如果之前曾经通过apt安装过gazebo，需要将gazebo先卸载干净：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>gazebo*
+sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>*gazebo
+sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>*ign*
+sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>*ign
+sudo<span class="w"> </span>apt<span class="w"> </span>remove<span class="w"> </span>ros-humble-ros-gz-sim<span class="w"> </span>
+sudo<span class="w"> </span>apt<span class="w"> </span>autoremove<span class="w"> </span>
+</pre></div>
+</div>
+<p>输入如下命令，确认没有带gazebo的包，有就都用sudo apt remove卸掉，然后再sudo apt autoremove</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>gazebo
+</pre></div>
+</div>
 <p>注意Gazebo安装必须通过Source安装，
 具体过程参照<a class="reference external" href="https://gazebosim.org/docs/garden/install_ubuntu_src/">Gazebo安装教程</a>编写，
 下面给出详细步骤。</p>
@@ -160,7 +174,7 @@ sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> <
 pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions
 </pre></div>
 </div>
-<p>注意pip中没有报错，完成了安装(Successfully installed …)。</p>
+<p>注意pip中没有报错，完成了安装(Successfully installed …)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
 pip<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
 </pre></div>
@@ -193,6 +207,15 @@ vcs<span class="w"> </span>import<span class="w"> </span>&lt;<span class="w"> </
 <blockquote>
 <div><p>从这步开始涉及的软件包下载过程在没有代理的情况下，下载会比较缓慢甚至断开连接，请酌情使用代理。</p>
 </div></blockquote>
+<p>在下载软件包的过程中，成功下载终端会打印“.”，失败会打印“E”,如果使用代理仍然有小部分包下载失败，可以用如下方法手动git下来，经测试可行。</p>
+<p>手动git方法： 打开collection-garden.yaml文件，执行：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span><span class="o">[</span>url地址<span class="o">]</span><span class="w"> </span>-b<span class="w"> </span><span class="o">[</span>version版本<span class="o">]</span><span class="w"> </span><span class="o">[</span>文件夹名<span class="o">]</span>
+</pre></div>
+</div>
+<p>例如要手动git第一个包“cmake”：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/gazebosim/gz-cmake<span class="w"> </span>-b<span class="w"> </span>gz-cmake3<span class="w"> </span>gz-cmake
+</pre></div>
+</div>
 </section>
 <section id="id3">
 <h3>安装依赖<a class="headerlink" href="#id3" title="此标题的永久链接"></a></h3>
@@ -234,7 +257,7 @@ rosdep<span class="w"> </span>update
 </pre></div>
 </div>
 <p>再执行：</p>
-<div class="highlight-bash安装位置 notranslate"><div class="highlight"><pre><span></span>rosdep install -r --from-paths src -i -y --rosdistro rolling
+<div class="highlight-bash安装位置 notranslate"><div class="highlight"><pre><span></span>rosdep install -r --from-paths src -i -y --rosdistro $ROS_DISTRO
 </pre></div>
 </div>
 <p>看到命令行提示依赖全部安装成功且没有出错的时候，执行编译命令：</p>
@@ -360,6 +383,14 @@ colcon<span class="w"> </span>build
 </pre></div>
 </div>
 <p>看到编译成功的信息后，我们就完成了全部的安装过程。</p>
+<p>注意如果编译出现报错：could not find ros2_controllers 这个包， 手动git下来编译：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace/src
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-controls/ros2_controllers.git<span class="w"> </span>-b<span class="w"> </span>humble
+rosdep<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>--from-paths<span class="w"> </span>.<span class="w"> </span>--ignore-src<span class="w"> </span>--rosdistro<span class="w"> </span><span class="nv">$ROS_DISTRO</span><span class="w"> </span>-y
+<span class="nb">cd</span><span class="w"> </span>..
+colcon<span class="w"> </span>build<span class="w"> </span>--merge-install
+</pre></div>
+</div>
 </section>
 <section id="id7">
 <h2>5. 测试<a class="headerlink" href="#id7" title="此标题的永久链接"></a></h2>
@@ -386,6 +417,7 @@ colcon<span class="w"> </span>build
 </pre></div>
 </div>
 <p>然后往 <code class="docutils literal notranslate"><span class="pre">/left/servo_node/test</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/right/servo_node/test</span></code> 这两个话题里发消息就可以了。</p>
+<p>到这里iiwa ros2 环境就配置好了， 第6步可以忽略。</p>
 </section>
 <section id="id9">
 <h3>自定义运行学逆解<a class="headerlink" href="#id9" title="此标题的永久链接"></a></h3>

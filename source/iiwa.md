@@ -1,7 +1,10 @@
 # iiwa install tutorials
 
-配置环境：Ubuntu 22.04 LTS初始环境
+配置环境：Ubuntu 22.04 LTS初始环境 + ros2 humble
+
 本教程旨在帮助您在Ubuntu 22.04 LTS上安装iiwa软件包。教程运行在Ubuntu 22.04 LTS默认环境下，Ubuntu系统的安装可以参照网上的资料，此处不再赘述。
+
+（建议使用和本教程完全相同的配置环境，目前尝试过在虚拟机下安装不成功， Ubuntu20.04不成功）
 
 [Ubuntu22.04 安装教程](https://www.sysgeek.cn/install-ubuntu-22-04-lts/)
 
@@ -11,7 +14,7 @@ ROS安装可以参照 [ROS安装教程](https://docs.ros.org/en/humble/Installat
 推荐按照官方教程安装，可以了解具体都配置了什么。
 官方安装具体过程不再赘述，下面给出一个安装脚本，经测试可用：
 
-```sh
+```bash
 wget http://fishros.com/install -O fishros && . fishros
 ```
 
@@ -38,6 +41,22 @@ ros2 run demo_nodes_py listener
 这表明 ROS 2 系统已经成功安装，并且可以正常运行示例程序。如果你看到其他的输出或错误信息，可以参考 ROS 2 的官方文档或社区支持，以解决问题。
 
 ## 2. Gazebo安装
+如果之前曾经通过apt安装过gazebo，需要将gazebo先卸载干净：
+
+```bash
+sudo apt remove gazebo*
+sudo apt remove *gazebo
+sudo apt remove *ign*
+sudo apt remove *ign
+sudo apt remove ros-humble-ros-gz-sim 
+sudo apt autoremove 
+```
+
+输入如下命令，确认没有带gazebo的包，有就都用sudo apt remove卸掉，然后再sudo apt autoremove
+
+```bash
+dpkg -l | grep gazebo
+```
 
 注意Gazebo安装必须通过Source安装，
 具体过程参照[Gazebo安装教程](https://gazebosim.org/docs/garden/install_ubuntu_src/)编写，
@@ -64,7 +83,7 @@ pip install vcstool || pip3 install vcstool
 pip install -U colcon-common-extensions || pip3 install -U colcon-common-extensions
 ```
 
-注意pip中没有报错，完成了安装(Successfully installed ...)。
+注意pip中没有报错，完成了安装(Successfully installed ...)
 
 ```bash
 pip show vcstool || pip3 show vcstool | grep Location
@@ -103,6 +122,20 @@ vcs import < collection-garden.yaml
 ```
 
 > 从这步开始涉及的软件包下载过程在没有代理的情况下，下载会比较缓慢甚至断开连接，请酌情使用代理。
+
+在下载软件包的过程中，成功下载终端会打印“.”，失败会打印“E”,如果使用代理仍然有小部分包下载失败，可以用如下方法手动git下来，经测试可行。
+
+手动git方法： 打开collection-garden.yaml文件，执行：
+
+```bash
+git clone [url地址] -b [version版本] [文件夹名]
+```
+
+例如要手动git第一个包“cmake”：
+
+```bash
+git clone https://github.com/gazebosim/gz-cmake -b gz-cmake3 gz-cmake
+```
 
 ### 安装依赖
 
@@ -157,7 +190,7 @@ rosdep update
 再执行：
 
 ```bash安装位置
-rosdep install -r --from-paths src -i -y --rosdistro rolling
+rosdep install -r --from-paths src -i -y --rosdistro $ROS_DISTRO
 ```
 
 看到命令行提示依赖全部安装成功且没有出错的时候，执行编译命令：
@@ -314,6 +347,18 @@ colcon build
 
 看到编译成功的信息后，我们就完成了全部的安装过程。
 
+注意如果编译出现报错：could not find ros2_controllers 这个包， 手动git下来编译：
+```bash
+cd ~/workspace/src
+git clone https://github.com/ros-controls/ros2_controllers.git -b humble
+rosdep install -r --from-paths . --ignore-src --rosdistro $ROS_DISTRO -y
+cd ..
+colcon build --merge-install
+```
+
+
+
+
 ## 5. 测试
 
 ### 启动Moveit2
@@ -345,6 +390,8 @@ ros2 run iiwa_servo_test iiwa_servo_test
 ```
 
 然后往 `/left/servo_node/test` 和 `/right/servo_node/test` 这两个话题里发消息就可以了。
+
+到这里iiwa ros2 环境就配置好了， 第6步可以忽略。
 
 ### 自定义运行学逆解
 

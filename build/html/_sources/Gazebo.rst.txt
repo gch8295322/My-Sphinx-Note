@@ -18,3 +18,5 @@ Share This Video ▶ https://youtu.be/O0729K-7VEY
 
 Useful links:
 Gazebo answers ▶ https://answers.gazebosim.org/questions/
+Gazebo tutorials ▶ http://gazebosim.org/tutorials
+Gazebo official website ▶ http://gazebosim.org/

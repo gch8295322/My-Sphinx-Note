@@ -18,10 +18,12 @@
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://js.users.51.la/19196963.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="索引" href="genindex.html" />
     <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="iiwa install tutorials" href="iiwa.html" />
     <link rel="prev" title="Gazebo tutorials" href="Gazebo.html" /> 
 </head>
 
@@ -53,6 +55,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#id2">背单词</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="iiwa.html">iiwa install tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">群插件功能简介</a></li>
 </ul>
 
         </div>
@@ -130,6 +134,16 @@
 </ul>
 </dd>
 </dl>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}单因素方差分析（One-way ANOVA）用于确定一个因素（即独立变量）是否对一个连续型结果（即因变量）产生显著影响。该方法基于比较因变量在不同水平的因素下的方差大小，来判断该因素是否显著影响因变量。\\以下是单因素方差分析的具体过程和相关公式：\\计算总平方和（Total sum of squares, SST）
+$SST = \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{k} (x_{ij} - \bar{x})^2$\\其中，n是样本总数，k是因素的水平数，$x_{ij}$是第 i 个样本在第 j 个水平下的得分，$\bar{x}$是所有样本得分的均值。\\计算因素组间平方和（Between-group sum of squares, SSB）
+$SSB = \sum\limits_{j=1}^{k} n_j (\bar{x}_j - \bar{x})^2$\\其中，$n_j$是第 j 个水平下的样本数，$\bar{x}_j$是第 j 个水平下的样本得分的平均值。\\计算误差组内平方和（Error sum of squares, SSE）
+$SSE = \sum\limits_{i=1}^{n} \sum\limits_{j=1}^{k} (x_{ij} - \bar{x}_j)^2$\\其中，$\bar{x}_j$是第 j 个水平下的样本得分的平均值。\\计算自由度
+总自由度：$df_{Total} = n - 1$\\因素组间自由度：$df_{Between} = k - 1$\\误差组内自由度：$df_{Error} = df_{Total} - df_{Between}$\\计算因素组间均方（Between-group mean square, MSB）
+$MSB = \dfrac{SSB}{df_{Between}}$\\计算误差组内均方（Error mean square, MSE）
+$MSE = \dfrac{SSE}{df_{Error}}$\\计算 F 比率
+$F = \dfrac{MSB}{MSE}$\\判断显著性
+使用计算得到的 F 比率与显著性水平进行比较，如果 F 比率大于临界值，则可以拒绝原假设，即认为因素对因变量产生显著影响。\\在进行单因素方差分析时，还需要满足方差齐性和正态分布等假设条件。如果这些假设不成立，可能需要使用非参数方法进行分析。\end{aligned}\end{align} \]</div>
 </section>
 </section>
 
@@ -138,6 +152,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="页脚">
         <a href="Gazebo.html" class="btn btn-neutral float-left" title="Gazebo tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+        <a href="iiwa.html" class="btn btn-neutral float-right" title="iiwa install tutorials" accesskey="n" rel="next">下一页 <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

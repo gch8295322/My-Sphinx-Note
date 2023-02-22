@@ -22,6 +22,8 @@
    StardewValley
    Gazebo
    ChatGPT
+   iiwa
+   plugins
 快捷操作
 =========
 
